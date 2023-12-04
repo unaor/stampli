@@ -1,0 +1,25 @@
+<div *ngIf='element.type==TEXT_INPUT'>
+    <div class="row g-3 align-items-center">
+        <div class="col">
+            <label class="col-form-label">{{element.label}}</label>
+        </div>
+        <div class="col">
+            <input type="text" class="form-control" placeholder="{{element.value}}">
+        </div>
+
+    </div>
+</div>
+
+<div *ngIf='element.type==SELECT'>
+    <div class="row g-3 align-items-center">
+        <div class="col">
+            <label class="col-form-label">{{element.label}}</label>
+        </div>
+        <div class="col">
+            <select class="form-select">
+                <option *ngFor="let value of values">{{value}}</option>
+            </select>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,20 @@
+<div class="alert alert-danger" *ngIf="errorMsg">{{errorMsg}}</div>
+
+<form [formGroup]="form" class="row align-items-center">
+    <ng-container formArrayName="commands">
+        <ng-container *ngFor="let commandForm of commandArray.controls; let index = index">
+            <div [formGroupName]="index" class="input-group p-1">
+                <input type="text" class="form-control" formControlName="command" id="command{{ index }}"
+                    placeholder="(“LINE;COLUMN;LABEL;TYPE;VALUE”)">
+                
+                <button type="button" class="btn btn-danger" (click)="removeCommand(index)" [disabled]="index==0">Remove</button>
+            </div>
+        </ng-container>
+    </ng-container>
+    <button type="button" class="btn btn-primary" (click)="addCommand()">Add Command</button>
+</form>
+<div class="row p-5">
+    <div class="col d-flex justify-content-center">
+        <button type="button" class="btn btn-success" (click)="prepareInputForGrid()">Submit</button>
+    </div>
+</div>

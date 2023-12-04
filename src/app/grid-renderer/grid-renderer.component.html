@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="row" *ngFor="let line of getNumberArray(numLines); let i = index">
+        <div class="col p-2 border-bottom" *ngFor="let col of getNumberArray(numColumns); let j = index">
+            <div *ngIf="getElementByCoords(i + 1, j + 1) as elements">
+                <div *ngIf="elements.length > 0; else emptyCell">
+                    <app-element-renderer [element]="elements[0]"></app-element-renderer>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row p-5" *ngIf="commands.length > 0">
+        <div class="col d-flex justify-content-center">
+            <button type="button" class="btn btn-danger" (click)="clear()">Clear</button>
+        </div>
+    </div>
+
+    <ng-template #emptyCell>
+        <div class="col">
+
+        </div>
+    </ng-template>
