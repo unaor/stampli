@@ -3,12 +3,12 @@
     Stampli Drawer excercise
   </div>
 
-  <div class="row p-5">
+  <div class="row p-5 border">
     <div class="col">
       <app-form-command (commandsChangedEvent)="commands = $event"></app-form-command>
     </div>
 
-    <div class="col-12" *ngIf="commands && commands.length > 0">
+    <div class="col-12 border" *ngIf="commands && commands.length > 0">
       <app-grid-renderer [commands]="commands"></app-grid-renderer>
     </div>
   </div>
